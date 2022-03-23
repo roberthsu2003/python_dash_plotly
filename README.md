@@ -9,7 +9,7 @@
 
 #### 1. [Dash](./Dash)
 
-#### 2. Dash app 架構
+#### 2. [架構Dash app](./架構Dash_app)
 	
 #### 3. 使用Plotly 圖表物件
 	
