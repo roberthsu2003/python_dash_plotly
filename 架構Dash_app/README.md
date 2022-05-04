@@ -16,7 +16,7 @@ pip install pandas
 
 ### 使用jupyter notebooks 執行 Dash app
 
-#### - 使用lesson1.ipynb
+#### 使用lesson1.ipynb
 - JupyterDash建立可以在jupyter notebook上可以用的Dash
 - 使用dash_core_components的Dropdown建立下拉式元件
 - 使用dash_html_component建立html元件
@@ -24,13 +24,18 @@ pip install pandas
 
 ![](./images/pic1.png)
 
-#### 建立標準的python function反應Dropdown動作
+#### 使用lesson1.py 建立下接式表單
 
+#### 建立標準的python function反應Dropdown動作
+- lesson2.py
 - 必需要有一個參數接收Dropdown傳過來的值
 
 #### Dash components必需要有id引數名稱來做為識別
 
+- lesson2.py
+
 #### Dash input and outputs
+
 - input決定那一個component將成為輸入資料傳遞給function的參數
 - output決定function傳出的資料要顯示到那一個component
 
