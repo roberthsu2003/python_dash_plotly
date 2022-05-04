@@ -5,6 +5,12 @@
 - python3.6以上
 - pycharm or visual studio code (IDE)
 
+### Dash是什麼?
+
+Dash = Flask(backend server) + plotly(charting library) + React(interactivate components)
+
+![](./images/pic1.png)
+
 ### Dash是由多個小型的套件所組成
 - Dash不是一個大型的套件
 - 由非常多小型的套件所組成
@@ -36,6 +42,14 @@
 
 ```
 pip install dash
+```
+
+```
+#raspberry
+#無法在虛擬環境執行
+
+$sudo apt install python3-plotly python3-pandas
+$pip3 install dash 
 ```
 
 #### 了解Dash app 基本組成架構
