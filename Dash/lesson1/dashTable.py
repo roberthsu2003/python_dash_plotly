@@ -1,7 +1,10 @@
 
 from dash import Dash, dash_table
 import pandas as pd
+import ssl
 
+#不要ssl認證
+ssl._create_default_https_context = ssl._create_unverified_context
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/solar.csv')
 
 app = Dash(__name__)
