@@ -1,4 +1,4 @@
-#from dash import Dash,html
+from dash import Dash,html
 from flask import Flask
 
 server = Flask(__name__)
@@ -9,9 +9,9 @@ def home():
     return "Hello, Flask!"
 
 
-#app = Dash(server=server, routes_pathname_prefix="/dash/")
+app = Dash(server=server, routes_pathname_prefix="/dash/")
 
-#app.layout = html.Div("This is the Dash app.")
+app.layout = html.Div("This is the Dash app.")
 
 if __name__ == "__main__":
-    server.run_server(debug=True)
+    app.run_server(debug=True)
