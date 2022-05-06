@@ -24,6 +24,35 @@
 - 每個圖表有很多細節的設定
 - Figue有2個主要的物件組合,data和layout
 
+```python
+import plotly.graph_objects as go
+fig = go.Figure()
+fig.add_scatter(x=[1, 2, 3, ], y=[4, 2, 3])
+fig.add_scatter(x=[1, 2, 3, 4], y=[4, 5, 2, 3])
+fig.layout.title = '這是表單抬頭'
+fig.layout.xaxis.title = '這是 X-axis title'
+fig.layout.yaxis.title = '這是 Y-axis title'
+fig.show()
+```
+
+### 將Figure物件轉換為html頁面
+
+```python
+#上官網查詢 plotly.graphic_object.figure內write_html()資料
+
+fig.write_html('html_plot.html',
+                config={'toImageButtonOptions':
+                    {'format':'svg'}
+                }
+)
+```
+
+### 將Figure物件轉換為圖片
+
+```python
+fig.write_image('path/to/image_file.svg', height=600, width=850)
+```
+
 
 
 	
