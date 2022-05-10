@@ -47,7 +47,7 @@ pip install dash
 ```
 #raspberry
 #無法在虛擬環境執行
-
+$sudo apt-get install python3-flask
 $sudo apt install python3-plotly python3-pandas
 $pip3 install dash 
 ```
