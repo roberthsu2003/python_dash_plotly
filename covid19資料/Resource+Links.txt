@@ -1,0 +1,51 @@
+Covid - 19 datasets links
+https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series
+confirmed = https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv
+death = https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv
+active = https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv  
+
+
+Dash app layout and css file
+https://dash.plotly.com/layout
+https://codepen.io/chriddyp/pen/bWLwgP.css
+
+dash html components
+https://dash.plotly.com/dash-html-components
+
+dash html components
+https://dash.plotly.com/dash-core-components
+
+dash basic callbacks
+https://dash.plotly.com/basic-callbacks
+
+Indicator
+https://plotly.com/python/indicator/
+
+pie chart
+https://plotly.com/python/pie-charts/
+
+line chart
+https://plotly.com/python/line-charts/
+
+bar chart
+https://plotly.com/python/bar-charts/
+
+Scattter mapbox map chart
+https://plotly.com/python/maps/
+https://plotly.com/python/mapbox-layers/
+https://plotly.com/python/scattermapbox/
+
+Mapbox account
+https://account.mapbox.com/auth/signin/
+
+Range slider
+https://dash.plotly.com/dash-core-components/rangeslider
+
+data table
+https://dash.plotly.com/datatable
+
+marker style
+https://plotly.com/python/marker-style/
+
+bubble chart
+https://plotly.com/python/bubble-charts/
