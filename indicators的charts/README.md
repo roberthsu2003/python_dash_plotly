@@ -1,4 +1,4 @@
-## bubbleChar和RangeSlider
+## indicators的charts
 
 ```python
 from dash import Dash, dcc, html, Input, Output
