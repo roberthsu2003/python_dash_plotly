@@ -184,5 +184,86 @@ fig.update_xaxes(
 fig.show()
 ```
 
-![](./images/)
+![](./images/pic12.png)
+
+### 限定時間範圍的時間序列
+
+```python
+#using plotly.express
+
+import plotly.express as px
+
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv')
+
+fig = px.line(df, x='Date', y='AAPL.High', range_x=['2016-07-01','2016-12-31'])
+fig.show()
+```
+
+![](./images/pic13.png)
+
+
+```python
+# using graph_objects
+
+import plotly.graph_objects as go
+import datetime
+
+x = [datetime.datetime(year=2013, month=10, day=4),
+     datetime.datetime(year=2013, month=11, day=5),
+     datetime.datetime(year=2013, month=12, day=6)
+]
+
+fig = go.Figure(data=[go.Scatter(x=x, y=[1, 3, 6])])
+fig.update_layout(xaxis_range=[
+    datetime.datetime(2013, 10, 17),
+    datetime.datetime(2013, 11, 20)
+])
+fig.show()
+```
+
+![](./images/pic14.png)
+
+### 時間序列和Range Slider
+
+```python
+import plotly.express as px
+import pandas as pd
+
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv')
+
+fig = px.line(df, x='Date', y='AAPL.High', title='Time Series with Rangeslider')
+
+fig.update_xaxes(rangeslider_visible=True)
+fig.show()
+```
+
+![](./images/pic15.png)
+
+### 時間序列和Range selector Buttons
+
+```python
+import plotly.express as px
+import pandas as pd
+
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv')
+
+fig = px.line(df, x='Date', y='AAPL.High', title='Time Series with Range Slider and Selectors')
+
+fig.update_xaxes(
+    rangeslider_visible=True,
+    rangeselector=dict(
+        buttons=list([
+            dict(count=1, label="1m", step="month", stepmode="backward"),
+            dict(count=6, label="6m", step="month", stepmode="backward"),
+            dict(count=1, label="YTD", step="year", stepmode="todate"),
+            dict(count=1, label="1y", step="year", stepmode="backward"),
+            dict(step="all")
+        ])
+    )
+)
+fig.show()
+```
+
+![](./images/pic16.png)
 
