@@ -1,4 +1,5 @@
-## 地圖
+## 分級著色圖(Choropleth Map)
+- 使用顏色分級
 ### 支援
 - Mapbox Maps
 - Geo maps
