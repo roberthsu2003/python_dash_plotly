@@ -74,12 +74,18 @@ app = Dash(__name__,external_stylesheets=[dbc.themes.DARKLY])
 app.layout = dbc.Container([
     dbc.Row([
         dbc.Col(
-            html.Img(src=app.get_asset_url('corona-logo-1.jpg'),className="p-2",style={'width':'200px','height':'auto'})
+            html.Img(src=app.get_asset_url('corona-logo-1.jpg'),className="p-2",style={'width':'100px','height':'auto'})
             ,width=4),
-        dbc.Col("title",width=4),
-        dbc.Col("說明",width=4)
+        dbc.Col([
+            html.H3("Covid-19"),
+            html.H5("全球案例追蹤")
+        ],width=4,className='text-center'),
+        dbc.Col([
+            html.H3("最新日期:"),
+            html.H5(str(covid_data['date'].iloc[-1].strftime('%Y-%m-%d')))
+        ],width=4,class_name="text-end")
     ])
-])
+],class_name="pt-3")
 if __name__ == '__main__':
     app.run_server(debug=True)
 
