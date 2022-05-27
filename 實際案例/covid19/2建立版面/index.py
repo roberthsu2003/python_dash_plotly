@@ -1,5 +1,7 @@
 from importlib import import_module
+from pydoc import classname
 from dash import Dash,html,dcc, Input, Output
+import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import pandas as pd
 
@@ -66,6 +68,20 @@ print(covid_data.isna().sum())
 
 #建立active的欄位
 covid_data['active'] = covid_data['confirmed'] - covid_data['deaths'] - covid_data['recovered']
+
+#建立dash
+app = Dash(__name__,external_stylesheets=[dbc.themes.DARKLY])
+app.layout = dbc.Container([
+    dbc.Row([
+        dbc.Col(
+            html.Img(src=app.get_asset_url('corona-logo-1.jpg'),className="p-2",style={'width':'200px','height':'auto'})
+            ,width=4),
+        dbc.Col("title",width=4),
+        dbc.Col("說明",width=4)
+    ])
+])
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
 
 
