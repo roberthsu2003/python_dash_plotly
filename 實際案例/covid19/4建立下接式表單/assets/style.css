@@ -1,0 +1,9 @@
+#w_countries .Select-control {
+    background-color: #fff;
+    color: #000;
+}
+
+#w_countries .Select-menu-outer {
+    background-color: #ccc;
+    color: #000;
+}

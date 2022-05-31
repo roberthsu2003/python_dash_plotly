@@ -76,6 +76,10 @@ print(covid_data.isna().sum())
 #建立active的欄位
 covid_data['active'] = covid_data['confirmed'] - covid_data['deaths'] - covid_data['recovered']
 
+##取得全球總數
+covid_data1 = covid_data.groupby('date')[['confirmed','deaths','recovered','active']].sum().reset_index()
+
+
 #建立dash
 app = Dash(__name__,external_stylesheets=[dbc.themes.DARKLY])
 app.layout = dbc.Container([
@@ -91,8 +95,31 @@ app.layout = dbc.Container([
             html.H3("最新日期:"),
             html.H5(str(covid_data['date'].iloc[-1].strftime('%Y-%m-%d')),style={'color':'#EAA136'})
         ],width=4,class_name="text-end")
-    ])
-],class_name="pt-3")
+    ]),
+    #建立3欄版面
+    dbc.Row([
+        dbc.Col([
+            html.H4("全球染疾數",style={'color':'#EAA136'}),
+            html.H4(f'{covid_data1["confirmed"].iloc[-1]:,.0f}'),
+            html.P(f'增加人數:{covid_data1["confirmed"].iloc[-1] - covid_data1["confirmed"].iloc[-2]:,.0f}',className='mt-5'),
+            html.P(f'增加比例:{(covid_data1["confirmed"].iloc[-1] - covid_data1["confirmed"].iloc[-2]) / covid_data1["confirmed"].iloc[-1] * 100:,.4f}%')
+        ],class_name="border mx-3 text-center pt-3"),
+        dbc.Col([
+            html.H4("全球死亡數",style={'color':'#D30F0F'}),
+            html.H4(f'{covid_data1["deaths"].iloc[-1]:,.0f}'),
+            html.P(f'增加人數:{covid_data1["deaths"].iloc[-1] - covid_data1["deaths"].iloc[-2]:,.0f}',className='mt-5'),
+            html.P(f'增加比例:{(covid_data1["deaths"].iloc[-1] - covid_data1["deaths"].iloc[-2]) / covid_data1["deaths"].iloc[-1] * 100:,.4f}%')
+        ],class_name="border mx-3 text-center pt-3"),
+        dbc.Col([
+            html.H4("全球無症狀數",style={'color':'#16A519'}),
+            html.H4(f'{covid_data1["active"].iloc[-1]:,.0f}'),
+            html.P(f'增加人數:{covid_data1["active"].iloc[-1] - covid_data1["active"].iloc[-2]:,.0f}',className='mt-5'),
+            html.P(f'增加比例:{(covid_data1["active"].iloc[-1] - covid_data1["active"].iloc[-2]) / covid_data1["active"].iloc[-1] * 100:,.4f}%')
+        ],class_name="border mx-3 text-center pt-3")
+    ],class_name="pt-5")
+],class_name="pt-5")
+
+
 if __name__ == '__main__':
     app.run_server(debug=True)
 
