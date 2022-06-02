@@ -310,7 +310,7 @@ def update_graph(w_countries):
     value_deaths = covid_data_2[covid_data_2['Country/Region']== w_countries]['deaths'].iloc[-1]
     value_recovered = covid_data_2[covid_data_2['Country/Region']== w_countries]['recovered'].iloc[-1]
     value_acitve = covid_data_2[covid_data_2['Country/Region']== w_countries]['active'].iloc[-1]
-    colors = ['orange','#ddle35', 'green']
+    colors = ['orange','red', 'green']
     fig = go.Figure()
     fig.add_trace(
         go.Pie(
@@ -319,6 +319,7 @@ def update_graph(w_countries):
             marker=dict(colors=colors),
             hoverinfo='label+value+percent',
             textinfo='label+value',
+            rotation = 45,
             hole = .3,
             pull = [0,0.2,0]
         )
