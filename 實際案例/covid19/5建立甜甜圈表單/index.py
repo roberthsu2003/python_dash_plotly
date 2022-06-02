@@ -150,7 +150,12 @@ app.layout = dbc.Container([
             )            
 
         ],class_name="col-3 border"),
-        dbc.Col("建立bar Chart",class_name='col-4 border'),
+        #5建立甜甜圈表單
+        dbc.Col(dcc.Graph(
+            id = 'pie_chart',
+            config={'displayModeBar':'hover'}
+        )
+        ,class_name='col-4 border'),
         dbc.Col("建立整合的Line和Bar Chart",class_name='col-5 border')
     ]),
     
@@ -188,8 +193,8 @@ def update_confirmed(w_countries):
 
     fig.update_layout(
         title={
-                'text': '新確診',
-                'y': 1,
+                'text': '當日確診',
+                'y': 0.9,
                 'x': 0.5,
                 'xanchor':'center',
                 'yanchor':'top'
@@ -197,7 +202,7 @@ def update_confirmed(w_countries):
         font=dict(color='orange'),
         paper_bgcolor="#222",
         plot_bgcolor="#222",
-        height = 50
+        height = 100
     )
 
     return fig
@@ -234,16 +239,16 @@ def update_deathed(w_countries):
 
     fig.update_layout(
         title={
-                'text': '最新死亡',
-                'y': 1,
+                'text': '當日死亡',
+                'y': 0.9,
                 'x': 0.5,
                 'xanchor':'center',
                 'yanchor':'top'
         },
-        font=dict(color='orange'),
+        font=dict(color='red'),
         paper_bgcolor="#222",
         plot_bgcolor="#222",
-        height = 50
+        height = 100
     )
 
     return fig
@@ -280,16 +285,71 @@ def update_recovered(w_countries):
 
     fig.update_layout(
         title={
-                'text': '最新無症狀',
-                'y': 1,
+                'text': '當日無症狀',
+                'y': 0.9,
                 'x': 0.5,
                 'xanchor':'center',
                 'yanchor':'top'
         },
-        font=dict(color='orange'),
+        font=dict(color='green'),
         paper_bgcolor="#222",
         plot_bgcolor="#222",
-        height = 50
+        height = 100
+    )
+
+    return fig
+
+@app.callback(
+    Output('pie_chart','figure'),
+    [Input('w_countries','value')]
+)
+def update_graph(w_countries):
+    ##各國每日總數
+    covid_data_2 = covid_data.groupby(['date', 'Country/Region'])[['confirmed','deaths','recovered','active']].sum().reset_index()
+    value_confirmed = covid_data_2[covid_data_2['Country/Region']== w_countries]['confirmed'].iloc[-1] 
+    value_deaths = covid_data_2[covid_data_2['Country/Region']== w_countries]['deaths'].iloc[-1]
+    value_recovered = covid_data_2[covid_data_2['Country/Region']== w_countries]['recovered'].iloc[-1]
+    value_acitve = covid_data_2[covid_data_2['Country/Region']== w_countries]['active'].iloc[-1]
+    colors = ['orange','#ddle35', 'green']
+    fig = go.Figure()
+    fig.add_trace(
+        go.Pie(
+            labels=['確症', '死亡', '無症狀'],
+            values = [value_confirmed, value_deaths, value_acitve],
+            marker=dict(colors=colors),
+            hoverinfo='label+value+percent',
+            textinfo='label+value',
+            hole = .3,
+            pull = [0,0.2,0]
+        )
+    )
+
+    fig.update_layout(
+        title={
+                'text': w_countries + '統計總數',
+                'y': 0.93,
+                'x': 0.5,
+                'xanchor':'center',
+                'yanchor':'top'
+        },
+        titlefont={
+                'color':'white',
+                'size':20
+        },
+        font=dict(
+            family='sans-serif',
+            color='white',
+            size=12
+        ),
+        legend={
+            'orientation':'h',
+            'xanchor':'center',
+            'x':0.5,
+            'y':-0.2
+        },
+        paper_bgcolor="#222",
+        plot_bgcolor="#222",
+        
     )
 
     return fig
