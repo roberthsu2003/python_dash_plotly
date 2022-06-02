@@ -1,6 +1,34 @@
 ## indicators的charts
 
-- gauge(量測工具)
+### Indicators由3種元素組成
+由mode屬性
+
+- number
+- delta
+- gauge
+
+### 3個主要的屬性
+- #### value:要視覺顯示的值
+- #### mode:要顯示何種元素
+- #### align:如何對齊number和delta(left, center, right)
+- #### domain:figure的額外設定
+
+### number屬性
+- valueformat
+- prefix
+- suffix
+- font
+
+### delta
+- reference
+- relative
+- valueformat
+- (increasing|decreasing).color
+- (increasing|decreasing).symbol
+- font
+- position:(top,left,bottom,right)	
+
+
 
 ```python
 import plotly.graph_objects as go

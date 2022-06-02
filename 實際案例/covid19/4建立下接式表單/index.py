@@ -3,6 +3,7 @@ from importlib import import_module
 from pydoc import classname
 from dash import Dash,html,dcc, Input, Output
 import dash_bootstrap_components as dbc
+from numpy import number
 import plotly.graph_objects as go
 import pandas as pd
 import requests
@@ -151,40 +152,45 @@ app.layout = dbc.Container([
 def update_confirmed(w_countries):
     value_confirmed = covid_data_2[covid_data_2['Country/Region']== w_countries]['confirmed'].iloc[-1] - covid_data_2[covid_data_2['Country/Region']== w_countries]['confirmed'].iloc[-2]
     delta_confirmed = covid_data_2[covid_data_2['Country/Region']== w_countries]['confirmed'].iloc[-2] - covid_data_2[covid_data_2['Country/Region']== w_countries]['confirmed'].iloc[-3]
+    fig = go.Figure()
+    fig.add_trace(
+        go.Indicator(
+            mode = 'number+delta',
+            value = value_confirmed,
+            delta = {
+                'reference':delta_confirmed,
+                'position':'right',
+                'valueformat':'g',
+                'relative':False,
+                'font':{'size':15}
+            },
+            number = {
+                'valueformat': ',',
+                'font':{'size':20}
+            },
+            domain={
+                'x':[0,1],
+                'y':[0,1]
+            }
+        )
+    )
 
-    return{
-        'data':[
-            go.Indicator(
-                mode='number+delta',
-                value=value_confirmed,
-                delta ={
-                    'reference': delta_confirmed,
-                    'position':'right',
-                    'valueformat':'g',
-                    'relative':False,
-                    'font':{'size':15}
-                },
-                number = {
-                    'valueformat':',',
-                    'font':{'size':20}
-                },
-                domain={'y':[0, 1],'x':[0,  1]}
-            )
-        ],
-        'layout': go.Layout(
-            title={
+    fig.update_layout(
+        title={
                 'text': '新確診',
                 'y': 1,
                 'x': 0.5,
                 'xanchor':'center',
                 'yanchor':'top'
-            },
-            font=dict(color='orange'),
-            paper_bgcolor="#222",
-            plot_bgcolor="#222",
-            height = 50
-        )
-    }
+        },
+        font=dict(color='orange'),
+        paper_bgcolor="#222",
+        plot_bgcolor="#222",
+        height = 50
+    )
+
+    return fig
+    
 if __name__ == '__main__':
     app.run_server(debug=True)
 
