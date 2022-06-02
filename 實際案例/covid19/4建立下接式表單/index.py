@@ -132,12 +132,23 @@ app.layout = dbc.Container([
                 placeholder="請選擇國家:",
                 options=[{'label':c, 'value':c} for c in covid_data["Country/Region"].unique()],
             ),
-            html.P("最新確整:"+str(covid_data['date'].iloc[-1].strftime('%Y-%m-%d'))),
+            html.H5("最近日期:"+str(covid_data['date'].iloc[-1].strftime('%Y-%m-%d')),className="pt-3 text-center"),
             dcc.Graph(
                 id = 'confirmed',
                 config={'displayModeBar':False},
                 className="mt-3"
-            )
+            ),
+            dcc.Graph(
+                id = 'deaths',
+                config={'displayModeBar':False},
+                className="mt-3"
+            ),
+            dcc.Graph(
+                id = 'active',
+                config={'displayModeBar':False},
+                className="mt-3"
+            )            
+
         ],class_name="col-3 border"),
         dbc.Col("建立bar Chart",class_name='col-4 border'),
         dbc.Col("建立整合的Line和Bar Chart",class_name='col-5 border')
@@ -191,6 +202,98 @@ def update_confirmed(w_countries):
 
     return fig
     
+@app.callback(
+    Output('deaths','figure'),
+    [Input('w_countries','value')]
+)
+def update_deathed(w_countries):
+    value_deaths = covid_data_2[covid_data_2['Country/Region']== w_countries]['deaths'].iloc[-1] - covid_data_2[covid_data_2['Country/Region']== w_countries]['deaths'].iloc[-2]
+    delta_deaths = covid_data_2[covid_data_2['Country/Region']== w_countries]['deaths'].iloc[-2] - covid_data_2[covid_data_2['Country/Region']== w_countries]['deaths'].iloc[-3]
+    fig = go.Figure()
+    fig.add_trace(
+        go.Indicator(
+            mode = 'number+delta',
+            value = value_deaths,
+            delta = {
+                'reference':delta_deaths,
+                'position':'right',
+                'valueformat':'g',
+                'relative':False,
+                'font':{'size':15}
+            },
+            number = {
+                'valueformat': ',',
+                'font':{'size':20}
+            },
+            domain={
+                'x':[0,1],
+                'y':[0,1]
+            }
+        )
+    )
+
+    fig.update_layout(
+        title={
+                'text': '最新死亡',
+                'y': 1,
+                'x': 0.5,
+                'xanchor':'center',
+                'yanchor':'top'
+        },
+        font=dict(color='orange'),
+        paper_bgcolor="#222",
+        plot_bgcolor="#222",
+        height = 50
+    )
+
+    return fig
+
+@app.callback(
+    Output('active','figure'),
+    [Input('w_countries','value')]
+)
+def update_recovered(w_countries):
+    value_active = covid_data_2[covid_data_2['Country/Region']== w_countries]['active'].iloc[-1] - covid_data_2[covid_data_2['Country/Region']== w_countries]['active'].iloc[-2]
+    delta_active = covid_data_2[covid_data_2['Country/Region']== w_countries]['active'].iloc[-2] - covid_data_2[covid_data_2['Country/Region']== w_countries]['active'].iloc[-3]
+    fig = go.Figure()
+    fig.add_trace(
+        go.Indicator(
+            mode = 'number+delta',
+            value = value_active,
+            delta = {
+                'reference':delta_active,
+                'position':'right',
+                'valueformat':'g',
+                'relative':False,
+                'font':{'size':15}
+            },
+            number = {
+                'valueformat': ',',
+                'font':{'size':20}
+            },
+            domain={
+                'x':[0,1],
+                'y':[0,1]
+            }
+        )
+    )
+
+    fig.update_layout(
+        title={
+                'text': '最新無症狀',
+                'y': 1,
+                'x': 0.5,
+                'xanchor':'center',
+                'yanchor':'top'
+        },
+        font=dict(color='orange'),
+        paper_bgcolor="#222",
+        plot_bgcolor="#222",
+        height = 50
+    )
+
+    return fig
+
 if __name__ == '__main__':
     app.run_server(debug=True)
 
