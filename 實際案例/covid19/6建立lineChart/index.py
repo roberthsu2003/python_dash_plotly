@@ -1,9 +1,6 @@
 import io
-from importlib import import_module
-from pydoc import classname
 from dash import Dash,html,dcc, Input, Output
 import dash_bootstrap_components as dbc
-from numpy import number
 import plotly.graph_objects as go
 import pandas as pd
 import requests
@@ -85,6 +82,7 @@ covid_data_2 = covid_data.groupby(['date', 'Country/Region'])[['confirmed','deat
 
 #建立dash
 app = Dash(__name__,external_stylesheets=[dbc.themes.DARKLY])
+server = app.server
 app.layout = dbc.Container([
     dbc.Row([
         dbc.Col(
@@ -106,24 +104,24 @@ app.layout = dbc.Container([
             html.H4(f'{covid_data1["confirmed"].iloc[-1]:,.0f}'),
             html.P(f'增加人數:{covid_data1["confirmed"].iloc[-1] - covid_data1["confirmed"].iloc[-2]:,.0f}',className='mt-5'),
             html.P(f'增加比例:{(covid_data1["confirmed"].iloc[-1] - covid_data1["confirmed"].iloc[-2]) / covid_data1["confirmed"].iloc[-1] * 100:,.4f}%')
-        ],class_name="border mx-3 text-center pt-3"),
+        ],class_name="border text-center pt-3",width=12,lg=3),
         dbc.Col([
             html.H4("全球死亡數",style={'color':'#D30F0F'}),
             html.H4(f'{covid_data1["deaths"].iloc[-1]:,.0f}'),
             html.P(f'增加人數:{covid_data1["deaths"].iloc[-1] - covid_data1["deaths"].iloc[-2]:,.0f}',className='mt-5'),
             html.P(f'增加比例:{(covid_data1["deaths"].iloc[-1] - covid_data1["deaths"].iloc[-2]) / covid_data1["deaths"].iloc[-1] * 100:,.4f}%')
-        ],class_name="border mx-3 text-center pt-3"),
+        ],class_name="border text-center pt-3",width=12,lg=3),
         dbc.Col([
             html.H4("全球無症狀數",style={'color':'#16A519'}),
             html.H4(f'{covid_data1["active"].iloc[-1]:,.0f}'),
             html.P(f'增加人數:{covid_data1["active"].iloc[-1] - covid_data1["active"].iloc[-2]:,.0f}',className='mt-5'),
             html.P(f'增加比例:{(covid_data1["active"].iloc[-1] - covid_data1["active"].iloc[-2]) / covid_data1["active"].iloc[-1] * 100:,.4f}%')
-        ],class_name="border mx-3 text-center pt-3")
-    ],class_name="pt-5"),
+        ],class_name="border  text-center pt-3",width=12,lg=3)
+    ],class_name="pt-5",justify='around'),
     #建立下拉式
     dbc.Row([
         dbc.Col([
-            html.H5('選擇國家:'),
+            html.H5('選擇國家:',className='pt-3'),
             dcc.Dropdown(
                 id='w_countries',
                 multi=False,
@@ -149,17 +147,19 @@ app.layout = dbc.Container([
                 className="mt-3"
             )            
 
-        ],class_name="col-3 border"),
+        ],class_name="border",width=12,lg=3),
         #5建立甜甜圈表單
+        dbc.Col(dcc.Graph(
+            id = 'pie_chart',
+            config={'displayModeBar':'hover'}
+        ),class_name='border',width=12,lg=4),
         dbc.Col(dcc.Graph(
             id = 'line_chart',
             config={'displayModeBar':'hover'}
-        )
-        ,class_name='col-4 border'),
-        dbc.Col("建立整合的Line和Bar Chart",class_name='col-5 border')
-    ]),
+        ),class_name='border',width=12,lg=5)
+    ],class_name="mt-5"),
     
-],class_name="pt-5")
+],class_name="pt-5 px-4")
 
 @app.callback(
     Output('confirmed','figure'),
@@ -362,9 +362,9 @@ def update_graph(w_countries):
 def update_graph(w_countries):
     ##各國每日確症
     covid_data_2 = covid_data.groupby(['date', 'Country/Region'])[['confirmed','deaths','recovered','active']].sum().reset_index()
-    covid_data_3 = covid_data_2[covid_data_2['Country/Region']==w_countries][['Country/Region','confirmed']].reset_index()
+    covid_data_3 = covid_data_2[covid_data_2['Country/Region']==w_countries][['Country/Region','date','confirmed']].reset_index()
     covid_data_3['daily confirmed'] = covid_data_3['confirmed']-covid_data_3['confirmed'].shift(1)
-
+    covid_data_3['Rolling Ave'] = covid_data_3['daily confirmed'].rolling(window=7).mean()
     fig = go.Figure()
     fig.add_trace(
         go.Bar(
@@ -375,8 +375,22 @@ def update_graph(w_countries):
             hoverinfo='text',
             hovertext=
             '<b>日期</b>:' + covid_data_3['date'].tail(30).astype(str) + '<br>' +
-            '<b>每日確診數</b>:' + [f'{x:,.0f}' for x in covid_data_3['date'].tail(30)] + '<br>' +
+            '<b>每日確診數</b>:' + [f'{x:,.0f}' for x in covid_data_3['daily confirmed'].tail(30)] + '<br>' +
             '<b>國家</b>:' + covid_data_3['Country/Region'].tail(30).astype(str) + '<br>'
+        )
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=covid_data_3['date'].tail(30),
+            y=covid_data_3['Rolling Ave'].tail(30),
+            name = '7日平均確診',
+            line = dict(color='white',width=3),
+            mode='lines',
+            hoverinfo='text',
+            hovertext=
+            '<b>日期</b>:' + covid_data_3['date'].tail(30).astype(str) + '<br>' +
+            '<b>每日確診數</b>:' + [f'{x:,.0f}' for x in covid_data_3['Rolling Ave'].tail(30)] + '<br>'
         )
     )
 
@@ -409,13 +423,16 @@ def update_graph(w_countries):
             title='<b>日期</b>',
             color='white',
             showline=True,
-            showgrid=True
+            showgrid=True,
+            tickformat='%y-%m-%d',
+            linewidth=1,
+            ticks='outside'
         ),
         yaxis=dict(
             title='<b>每日確診數</b>',
             color='white',
             showline=True,
-            showgrid=True
+            showgrid=True,
         )
         
     )
