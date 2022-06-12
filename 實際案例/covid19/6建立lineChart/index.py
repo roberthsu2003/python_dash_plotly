@@ -81,7 +81,10 @@ covid_data1 = covid_data.groupby('date')[['confirmed','deaths','recovered','acti
 covid_data_2 = covid_data.groupby(['date', 'Country/Region'])[['confirmed','deaths','recovered','active']].sum().reset_index()
 
 #建立dash
-app = Dash(__name__,external_stylesheets=[dbc.themes.DARKLY])
+app = Dash(__name__,
+        external_stylesheets=[dbc.themes.DARKLY],
+        meta_tags=[{'name':'viewport','content':'width=device-width'}]
+)
 server = app.server
 app.layout = dbc.Container([
     dbc.Row([
