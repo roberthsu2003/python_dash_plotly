@@ -1,5 +1,5 @@
 import pandas as pd
-from dash import Dash,html,dcc,Input,Output
+from dash import Dash,html,dcc,Input,Output,dash_table
 import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
@@ -71,6 +71,37 @@ app.layout = dbc.Container([
                 html.Div(id='text3',className='mb-4')
             ], width=2,className='bg-light text-center shadow rounded')
     ],className='pt-5'),
+    dbc.Row([
+        dbc.Col([
+            dash_table.DataTable(
+                id='my_table',
+                columns=[{'id':x,'name':x}for x in ['Order ID','Order Date','部分','國家','城市','狀態','地區','類別','子類別','產品名稱','Sales']],
+                virtualization=True,
+                style_cell={
+                    'textAlign':'left',
+                    'min-width':'100px',
+                    'backgroundColor':'#cccccc',
+                    'color':'#333333',
+                    'borderBottom':'0.01rem solid #000000'
+                },
+                style_header={
+                    'backgroundColor':'#333333',
+                    'color':'#cccccc',
+                    'fontWeight':'bold',
+                    'textAlign':'center'
+                },
+                style_as_list_view=True,
+                style_data={'styleOverflow':'hidden',
+                            'color':'black'
+                            },
+                fixed_rows={'headers':True},
+                sort_action='native',
+                sort_mode='multi'
+            )
+        ],width=3),
+        dbc.Col('Bar',width=3),
+        dbc.Col('bubble Chart',width=6)
+    ],className='mt-5 p-3 bg-light')
     
 ],class_name="py-5")
 
@@ -111,7 +142,7 @@ def update_barChart(select_years,sub_category,sub_segment):
                 'x':0.5,
                 'y':0.9,
                 'xanchor': 'center',
-                'yanchor': 'top'
+                'yanchor': 'top',
             },
             title_font={
                 'color':'#0f5132',
@@ -121,7 +152,8 @@ def update_barChart(select_years,sub_category,sub_segment):
             paper_bgcolor="#fff",
             plot_bgcolor="#fff",
             margin_l=0,
-            margin_r=0
+            margin_r=0,
+            height=450
         )
         fig.update_xaxes(
             dict(
@@ -160,10 +192,10 @@ def update_barChart(select_years,sub_category,sub_segment):
         fig.update_layout(
             title={
                 'text': '年度:' + str(select_years) + '<br>客戶類型:' + sub_category +'<br>地區銷售金額',
-                'x': 0,
-                'y': 0.9,
+                'x':0.5,
+                'y':0.9,
                 'xanchor': 'center',
-                'yanchor': 'top'
+                'yanchor': 'top',
             },
             title_font={
                 'color': '#0f5132',
@@ -400,6 +432,16 @@ def yoy_growth(select_years):
         className='fs-4 fw-bold text-danger')
     ]
     return content3
+
+@app.callback(
+    Output('my_table','data'),
+    [Input('select_years','value'),
+     Input('sub_category','value')
+    ]
+)
+def update_datatable(select_years,sub_category):
+    data = sales[(sales['Year'] == select_years) & (sales['部分'] == sub_category)]
+    return data.to_dict('records')
 
 if __name__ == "__main__":
     app.run_server(debug=True)
