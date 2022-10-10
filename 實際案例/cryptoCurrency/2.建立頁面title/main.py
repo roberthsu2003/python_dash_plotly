@@ -14,7 +14,8 @@ app.layout = dbc.Container(children=[
             lg=6
         ),
         dbc.Col(
-            children=html.H1('Hello World1'),
+            children=html.H3('2021-11-25 22:45:15',
+                             className="text-end"),
             width=12,
             lg=6
         )
