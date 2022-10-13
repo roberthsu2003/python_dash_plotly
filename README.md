@@ -1,42 +1,18 @@
 # Dash and Plotly 
-## Section1 建構一個最簡單Dash App
-- 設定環境
-- 探索資料圖表面板和其它支援的套件
-- 了解資料圖表面板所需要的架構
-- 建立和執行一個最小的app
-- 增加HTML和其它元件至app
-- 學習架構版面和管理外觀
 
-#### 1. [Dash](./Dash)
+## 1. [Dash](./Dash)
 
-#### 2. [架構Dash app](./架構Dash_app)
+## 2. [架構Dash app](./架構Dash_app)
 
-####  Dash Core Components
+##  3. [Dash Core Components](./Dash_Core_Plotly)
 
-#### Dash HTML Components(./Dash_HTML)
+## 4. [Dash HTML Components](./Dash_HTML)
 
-#### [Dash Bootstrap Components](./Dash_Bootstrap)
-	
-#### 3. [使用Plotly圖表元件](./使用Plotly圖表元件)
-	
-#### 4. 資料操作和先前準備
+## 5. [Dash Bootstrap Components](./Dash_Bootstrap)
 
-## Section2 增加及時資料至Dash app
+## 6. [Dash整合Flask](./Dash整合Flask)
 
-#### 5. 使用Bar Charts 和 Dropdown Menus
+## 7. [部署圖表App](./部署)
 
-#### 6. 使用sliders過濾資料，圖表顯示變動資料
+## 8. [實際案例](./實際案例)
 
-#### 7. 使用地圖表單，利用標籤豐富表單
-
-#### 8. 重覆計算表單和建立互動表格
-
-## Section3 plotly的應用
-
-#### 9. plotly在機械學習上的應用
-
-#### 10. 加速應用程式
-
-#### 11. 互動圖表的網站
-
-#### 12. 部署圖表App
