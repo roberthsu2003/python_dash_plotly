@@ -10,6 +10,12 @@
 #### 1. [Dash](./Dash)
 
 #### 2. [架構Dash app](./架構Dash_app)
+
+####  Dash Core Components
+
+#### Dash HTML Components(./Dash_HTML)
+
+#### [Dash Bootstrap Components](./Dash_Bootstrap)
 	
 #### 3. [使用Plotly圖表元件](./使用Plotly圖表元件)
 	
