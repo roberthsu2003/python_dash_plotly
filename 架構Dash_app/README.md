@@ -1,5 +1,20 @@
 
-## 利用簡單範例,架構完整dash_app
+## 1. 利用簡單範例,架構完整dash_app
+### 1-1. 安裝dash,jupyter-dash,pandas
+
+```
+pip install dash
+pip install jupyter-dash
+pip install pandas
+```
+
+### 1-2. Layout(版面)
+
+### 1-3. Callbacks(回呼)
+
+### 1-4. 互動圖表
+
+### 1-5. 透過回呼,取得資料 
 
 ## 1. 架構Dash app
 
