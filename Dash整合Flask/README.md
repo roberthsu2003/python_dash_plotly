@@ -182,8 +182,6 @@ app2.layout = html.Div("Hello, Dash app 2!")
 ```
 
 
-### 上傳至Render展示
-
 
 
 
