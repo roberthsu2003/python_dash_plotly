@@ -110,7 +110,10 @@ $ sudo gunicorn -b 0.0.0.0:80 test2:application
 
 - [上傳Render程式碼](https://github.com/roberthsu2003/dash_flask_web)
 
-- [Render_WebService展示-等待30秒](https://dash-flask-web.onrender.com/app1/)
+- [Render_WebService展示1-等待30秒](https://dash-flask-web.onrender.com/app1/)
+
+- [Render_WebService展示2-等待30秒](https://dash-flask-web.onrender.com/app2/)
+
 
 - requirements.txt
 
