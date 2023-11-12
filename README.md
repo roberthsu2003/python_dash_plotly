@@ -1,8 +1,12 @@
-# Dash and Plotly 
+# Dash and Plotly
+- [Dash說明文件](https://dash.plotly.com/)
+- [Dash bootstrap說明文件](https://dash-bootstrap-components.opensource.faculty.ai/)
+- [Plotly 說明文件](https://plotly.com/python/)
 
 ## 1. [Dash](./Dash)
 - [Hello Dash!](./Dash/lesson1/app.py)
-
+- [Dash網頁](./Dash/lesson2/app.py)
+- [Dash Bootstrap](./Dash/lesson3/app.py)
 
 ## 2. [架構Dash app](./架構Dash_app)
 

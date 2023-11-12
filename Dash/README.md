@@ -1,6 +1,4 @@
 
-## 0. [Dash說明文件](https://dash.plotly.com/)
-
 ## 1. Dash相關生態環境
 
 ### 必需要安裝的軟體
