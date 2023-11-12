@@ -9,7 +9,8 @@
 - [Dash Bootstrap](./Dash/lesson3/app.py)
 
 ## 2. [架構Dash app](./架構Dash_app)
-- [精簡Dash app]()
+- [精簡Dash app](./架構Dash_app/minimal_Dash_app/)
+- [20分鐘完成範例](./架構Dash_app/20_minutes_app/)
 
 ##  3. [Dash Core Components](./Dash_Core_Plotly)
 
