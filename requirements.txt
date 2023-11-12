@@ -2,3 +2,6 @@ dash
 numpy
 pandas
 matplotlib
+flask
+requirements
+gunicorn
