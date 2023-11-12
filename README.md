@@ -1,6 +1,8 @@
 # Dash and Plotly 
 
 ## 1. [Dash](./Dash)
+- [Hello Dash!](./Dash/lesson1/app.py)
+
 
 ## 2. [架構Dash app](./架構Dash_app)
 
