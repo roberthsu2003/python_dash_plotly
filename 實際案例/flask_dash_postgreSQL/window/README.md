@@ -4,9 +4,9 @@
 
 ![](./images/pic1.png)
 
-3.所有使用的套件在requirements.txt
+3. 所有使用的套件在requirements.txt
 
-4.介面外觀
+4. 介面外觀
 
 ![](./images/pic2.png)
 
