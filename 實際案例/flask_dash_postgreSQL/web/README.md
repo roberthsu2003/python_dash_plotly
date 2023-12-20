@@ -28,3 +28,7 @@
 
 ![](./images/pic6.png)
 
+### 7. PostGreSQL的pgAdmin 4介面
+
+![](./images/pic7.png)
+
