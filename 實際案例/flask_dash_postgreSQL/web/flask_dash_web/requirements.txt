@@ -1,0 +1,7 @@
+requests
+flask
+dash
+gunicorn
+pandas
+dash-bootstrap-components
+psycopg2

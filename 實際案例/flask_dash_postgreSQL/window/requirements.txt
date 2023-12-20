@@ -1,0 +1,8 @@
+PyInputPlus
+requests
+dash
+pandas
+gunicorn
+flask
+psycopg2-binary
+pyinstaller

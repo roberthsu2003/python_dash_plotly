@@ -1,0 +1,63 @@
+{% extends "base_navigation.html" %}
+
+{% block title %}
+    登入
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+        
+        @media (min-width: 576px) { }
+
+    
+        @media (min-width: 768px) {}
+
+
+        @media (min-width: 992px) {}
+
+
+        @media (min-width: 1200px) {}
+
+
+        @media (min-width: 1400px) {}
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <div class="container-lg">
+        <h1>登入</h1>
+        <form method="POST">
+            {{ form.csrf_token }}
+            <div class="mb-3">
+                {{ form.email.label(class="form-label") }} {{form.email(class="form-control",size=30,minlength=4,maxlength=30)}}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label(class="form-label") }} {{ form.password(class="form-control")}}
+            </div>            
+            <input type="submit" value="確定" class="btn btn-primary">
+            <a href="/auth/register" class="ps-3">註冊帳號</a>
+        </form>
+        {% if form.email.errors %}
+            <ul>
+            {% for error in form.email.errors %}
+                <li>
+                    <div class="alert alert-warning" role="alert">
+                        {{ error }}
+                    </div>
+                </li>
+            
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {{ super() }}
+    </div>
+       
+{% endblock %}
+
+
+{% block footer %}
+        &copy; Copyright 2023 by <a href="https://flask-dash-web-uym5.onrender.com">徐國堂</a>.
+{% endblock %}
+
