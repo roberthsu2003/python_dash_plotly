@@ -14,3 +14,16 @@
 - [影片介紹](https://youtu.be/pWCvp0iFgCU)
 
 ---
+
+4. [信用卡消費樣態](./信用卡消費樣態)
+- [影片介紹](https://youtu.be/UkDIQrpbLS8)
+
+---
+
+5. [台北市youbike站點及時資訊](./台北市youbike站點及時資訊)
+- [影片資訊](https://youtu.be/ermj_f8KYeo)
+
+---
+
+6. []()
+- [影片資訊]()

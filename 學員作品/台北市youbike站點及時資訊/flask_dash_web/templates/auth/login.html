@@ -1,0 +1,71 @@
+{% extends "base_navigation.html" %}
+
+{% block title %}
+登入
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+    #resetBtn {
+        margin-right: 20px;
+    }
+
+    @media (min-width: 576px) {}
+
+
+    @media (min-width: 768px) {}
+
+
+    @media (min-width: 992px) {}
+
+
+    @media (min-width: 1200px) {}
+
+
+    @media (min-width: 1400px) {}
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container-lg">
+    <h1>登入</h1>
+    <form method="POST">
+        {{ form.csrf_token }}
+        <table class="table">
+
+            <tbody>
+                <tr>
+                    <th scope="row" class="col-2 text-end">{{ form.name.label }}</th>
+                    <td>
+                        {{ form.name(size=20,class='form-control') }}
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row" class="col-2 text-end">密碼</th>
+                    <td>
+                        <input type="text" id="password" name="password" required minlength="4" maxlength="8" size="10"
+                            class="form-control" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row"></th>
+                    <td><input type="reset" id="resetBtn" value="重設" class="btn btn-secondary" /><input type="submit"
+                            value="確定" class="btn btn-primary" /></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    {{ super() }}
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+&copy; Copyright 2023
+{% endblock %}

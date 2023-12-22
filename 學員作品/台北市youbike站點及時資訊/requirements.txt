@@ -1,0 +1,10 @@
+requests
+flask
+Flask-WTF
+WTForms
+dash
+gunicorn
+pandas
+dash-bootstrap-components
+psycopg2
+echarts

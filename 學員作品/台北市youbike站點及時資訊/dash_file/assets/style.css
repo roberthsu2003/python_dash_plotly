@@ -1,0 +1,305 @@
+/*公共樣式*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #d2e8f7;
+    /*max-width: 1200px;*/
+}
+
+.title {
+    font-family: 'ChenYuluoyan';
+    box-shadow: 0 2px 1px #202020;
+    text-align: center;
+    height: 150px;
+    padding: 20px;
+    padding-bottom: 30px;
+    color: #ffffffdc;
+    letter-spacing: 10px;
+}
+
+.title h1{
+    font-size: 120px;
+    line-height: 120px;
+}
+
+.title h2{
+    font-size: 40px;
+    line-height: 40px;
+    }
+
+.bigbox {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    justify-content: center;
+    margin-bottom: 50px;
+    text-align: center;
+    height: 120px;
+    padding-top: 20px;
+}
+
+.buttonbox {
+    font-family: 'ChenYuluoyan';
+    border-radius: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 20px;
+    width: 100px;
+    height: 100px;
+    background-size: 100%;
+    opacity: 0.9;
+    border: rgba(182, 182, 182, 0.596) 1px solid;
+    box-shadow: #131313 2px 2px;
+    transition: all 0.3s ease;
+}
+
+
+.buttonbox:hover{
+    background-color: #00000000;
+    box-shadow: #050505 6px 6px;
+    bottom: 5px;
+    border: #ff2a2a 1px solid;
+    transform: scale(1.15);
+}
+
+#btn-nclicks-0{
+    background-image: url(../assets/img/骷顱頭.png);
+    position: relative;
+}
+#btn-nclicks-0:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 14%;
+    content: "全部";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;;
+}
+
+#btn-nclicks-1{
+    background-image: url(../assets/img/吃藥.png);
+    position: relative;
+}
+#btn-nclicks-1:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 14%;
+    content: "吃藥";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;;
+}
+
+#btn-nclicks-2{
+    background-image: url(../assets/img/氣體.png);
+    position: relative;
+}
+#btn-nclicks-2:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 14%;
+    content: "窒息";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;
+}
+
+#btn-nclicks-3{
+    background-image: url(../assets/img/上吊.png);
+    position: relative;
+}
+#btn-nclicks-3:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 14%;
+    content: "上吊";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;
+}
+
+#btn-nclicks-4{
+    background-image: url(../assets/img/水.png);
+    position: relative;
+}
+#btn-nclicks-4:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    content: "溺斃";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;;
+}
+
+#btn-nclicks-5{
+    background-image: url(../assets/img/吞槍.png);
+    position: relative;
+}
+#btn-nclicks-5:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    content: "槍械";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;;
+}
+
+#btn-nclicks-6{
+    background-image: url(../assets/img/割腕.png);
+    position: relative;
+}
+#btn-nclicks-6:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 14%;
+    content: "切穿";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;;
+}
+
+#btn-nclicks-7{
+    background-image: url(../assets/img/跳樓.png);
+    position: relative;
+}
+#btn-nclicks-7:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    content: "跳樓";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;;
+}
+
+#btn-nclicks-8{
+    background-image: url(../assets/img/未知.png);
+    position: relative;
+}
+#btn-nclicks-8:hover::before {
+    position: absolute;
+    top: 40%;
+    left: 14%;
+    content: "其他";
+    white-space: pre;
+    text-align: center;
+    font-size: 46px;
+    color: #ff2a2a;
+}
+
+.bigchart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.piechart{
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.barchart {
+    padding-bottom: 10px;
+}
+
+.piechart {
+    
+    display: block;
+    justify-content: center;
+    float: left;
+}
+
+.barchart {
+    justify-content: center;
+    float: left;
+}
+
+.linechart{
+    width: 1200px;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.imgg{
+    background-size: 100%;
+    width: 390px;
+    height: 190px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#btn-nclicks-9{
+    background-image: url(../assets/img/home.png);
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    
+}
+
+.txt{
+    font-family: 'ChenYuluoyan';
+    padding-bottom: 50px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 70px;
+    letter-spacing: 10px;
+}
+
+#btn-nclicks-9:hover{
+    box-shadow: #050505 5px 5px;
+    opacity: 1;
+    width: 80px;
+    height: 80px;
+
+}
+
+/* 媒體查詢 - 手機 
+@media only screen and (max-width: 767px) {
+    .bigbox {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .buttonbox {
+        width: 40px;
+        height: 30px;
+    }
+}
+
+/* 媒體查詢 - 平板 
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .bigbox {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    .buttonbox {
+        width: 45px;
+        height: 25px;
+    }
+}*/
+
+@font-face {
+    font-family: 'ChenYuluoyan';
+    src: URL(./ChenYuluoyan-Thin.ttf) format('truetype');
+}

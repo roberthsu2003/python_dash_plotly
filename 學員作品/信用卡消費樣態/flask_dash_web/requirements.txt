@@ -1,0 +1,12 @@
+requests
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+flask
+dash
+gunicorn
+dash-bootstrap-components
+psycopg2-binary
+nbformat

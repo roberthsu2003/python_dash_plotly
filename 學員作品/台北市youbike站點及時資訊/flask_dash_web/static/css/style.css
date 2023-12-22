@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'jf-openhuninn-2.0';
+    color: #ffffffe5;
+}
+
+body {
+    background-color: #d2e8f7;
+}
+
+.title{
+    text-align: center;
+    font-size: 70px;
+}
+
+div .container-lg{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+h1 .h1img{
+    text-align: center;
+}
+
+#PIC {
+    width: 1000px;
+    height: 525px;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-color: #FFF;
+    border: #FFF 5px solid;
+    box-shadow: #333 0 2px 5px;
+    padding-top: 20px;
+}
+
+#PIC li {
+    list-style-type: none;
+    position: absolute;
+}
+
+#PIC li img {
+    display: none;
+}
+
+#PIC li:first-child img {
+    display: block;
+}
+
+.bottom {
+    text-align: center;
+    font-size: 60px;
+    padding: 50px;
+}
+
+@font-face {
+    font-family: 'jf-openhuninn-2.0';
+    src: URL(./jf-openhuninn-2.0.ttf) format('truetype');
+}
