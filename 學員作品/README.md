@@ -29,3 +29,8 @@
 - [影片資訊](https://youtu.be/Rst5R9lwA9M)
 
 ---
+
+7. [Pokemon_sleep_SQL_郭在得](./Pokemon_sleep_SQL)
+- [影片資訊](https://youtu.be/2_cwxZATpak)
+
+---
