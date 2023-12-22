@@ -1,0 +1,9 @@
+.team_logo:hover {
+    filter: grayscale(90%);
+    /* 將照片轉為灰度，可以根據需要調整效果 */
+};
+
+*{
+    padding:0;
+    margin: 0;
+}
