@@ -1,0 +1,269 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'ChenYuluoyan';
+    color: #ffffffe5;
+}
+
+body {
+    padding-top: 20px;
+    background-color: rgba(188, 188, 255, 0.699);
+    background-image: url(../images/鐵軌.jpg);
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-attachment: fixed;
+
+}
+
+.title{
+    text-align: center;
+    font-size: 100px;
+}
+
+#PIC {
+    width: 1000px;
+    height: 350px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-color: #FFF;
+    border: #FFF 5px solid;
+    box-shadow: #333 0 2px 5px;
+}
+
+#PIC ul {}
+
+#PIC li {
+    list-style-type: none;
+    position: absolute;
+}
+
+#PIC li img {
+    display: none;
+}
+
+#PIC li:first-child img {
+    display: block;
+}
+
+
+#ICON {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.div2{
+    margin: auto;
+    padding-top: 150px;
+    width: 80%;
+    height: 400px;
+    text-align: center;
+    font-size: 60px;
+    line-height: 100px;
+    font-style: bold;
+    color: #ffffffce;
+}
+
+.div3{
+    padding-top: 10px;
+    background-color: (rgb(231, 255, 199)55, 127);
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    
+}
+
+#a01{
+    background-color: white;
+    border: #333 1px solid;
+    margin: 10px;
+    border-radius: 25px;
+    width: 500px;
+    height: 500px;
+    box-shadow: #333 5px 5px 10px 0px;
+
+    
+}
+.a01{
+    background-image: url(../images/跳樓.png);
+    background-size: 100%;
+}
+.a01_1{
+    display: block;
+    position: relative;}
+.a01_1:hover::before {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    content: '跳樓\A 痛苦程度◆◇◇◇◇ \A麻煩程度◆◇◇◇◇ \A屍體形象◆◆◆◇◇ \A牽連他人◆◆◆◆◇ \A致死程度◆◆◆◆◇\A\A點擊了解更多';
+    white-space: pre;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffffe5;
+}
+.a02_1 {
+    display: block;
+    position: relative;
+}
+
+.a02_1:hover::before {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    content: '上吊\A 痛苦程度◆◇◇◇◇ \A麻煩程度◆◆◇◇◇ \A屍體形象◆◆◆◇◇ \A牽連他人◆◆◇◇◇ \A致死程度◆◆◆◆◆\A\A點擊了解更多';
+    white-space: pre;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffffe5;
+}
+.a03_1 {
+    display: block;
+    position: relative;
+}
+
+.a03_1:hover::before {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    content: '割腕\A 痛苦程度◆◆◇◇◇ \A麻煩程度◆◇◇◇◇ \A屍體形象◆◆◇◇◇ \A牽連他人◆◇◇◇◇ \A致死程度◆◇◇◇◇\A\A點擊了解更多';
+    white-space: pre;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffffe5;
+}
+.a04_1 {
+    display: block;
+    position: relative;
+}
+
+.a04_1:hover::before {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    content: '藥物\A 痛苦程度◆◆◆◇◇ \A麻煩程度◆◆◆◆◆ \A屍體形象◆◇◇◇◇ \A牽連他人◆◇◇◇◇ \A致死程度◆◇◇◇◇\A\A點擊了解更多';
+    white-space: pre;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffffe5;
+}
+.a05_1 {
+    display: block;
+    position: relative;
+}
+
+.a05_1:hover::before {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    content: '氣體\A 痛苦程度◆◆◆◇◇ \A麻煩程度◆◆◆◆◆ \A屍體形象◆◇◇◇◇ \A牽連他人◆◇◇◇◇ \A致死程度◆◇◇◇◇\A\A點擊了解更多';
+    white-space: pre;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffffe5;
+}
+.a06_1 {
+    display: block;
+    position: relative;
+}
+
+.a06_1:hover::before {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    content: '溺斃\A 痛苦程度◆◆◆◇◇ \A麻煩程度◆◆◆◆◆ \A屍體形象◆◇◇◇◇ \A牽連他人◆◇◇◇◇ \A致死程度◆◇◇◇◇\A\A點擊了解更多';
+    white-space: pre;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffffe5;
+}
+.a07_1 {
+    display: block;
+    position: relative;
+}
+
+.a07_1:hover::before {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    content: '槍彈\A 痛苦程度◆◆◆◇◇ \A麻煩程度◆◆◆◆◆ \A屍體形象◆◇◇◇◇ \A牽連他人◆◇◇◇◇ \A致死程度◆◇◇◇◇\A\A點擊了解更多';
+    white-space: pre;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffffe5;
+}
+
+.a08_1 {
+    display: block;
+    position: relative;
+}
+
+.a08_1:hover::before {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    content: '其他\A 痛苦程度◆◆◆◇◇ \A麻煩程度◆◆◆◆◆ \A屍體形象◆◇◇◇◇ \A牽連他人◆◇◇◇◇ \A致死程度◆◇◇◇◇\A\A點擊了解更多';
+    white-space: pre;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffffe5;
+}
+
+
+#a01:hover{
+    opacity: 0.1;
+}
+
+.a02{
+    background-image: url(../images/上吊.png);
+    background-size: 100%;
+}
+.a03 {
+    background-image: url(../images/割腕.png);
+    background-size: 100%;
+}
+.a04 {
+    background-image: url(../images/吃藥.png);
+    background-size: 100%;
+}
+.a05 {
+    background-image: url(../images/氣體.jpg);
+    background-size: 100%;
+}
+.a06 {
+    background-image: url(../images/水.png);
+    background-size: 100%;
+}
+.a07 {
+    background-image: url(../images/吞槍.png);
+    background-size: 100%;
+}
+.a08 {
+    background-image: url(../images/火車圖01.jpg);
+    background-size: 100%;
+}
+
+.div3 img{
+    vertical-align: bottom;
+}
+.star{
+    text-align: center;
+    width: 500px;
+    font-size: 40px;
+    line-height: 50px;
+    padding-top: 10px;
+}
+
+.bottom {
+    text-align: center;
+    font-size: 60px;
+    padding: 50px;
+}
+
+@font-face {
+    font-family: 'ChenYuluoyan';
+    src: URL(./ChenYuluoyan-Thin.ttf) format('truetype');
+}
