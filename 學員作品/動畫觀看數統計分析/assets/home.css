@@ -1,0 +1,55 @@
+.textbox{
+    width: 450px;
+    height: 400px;
+    margin:0 auto;
+    color: #fff;
+}
+.textbox h2{
+    margin-bottom: 240px;
+}
+
+.video{
+    height: 400px;
+    width: 700px;
+    z-index: 1;
+    position: absolute;
+    top: 200px;
+    right:240px;
+}
+.shadow_box{
+    width: 700px;
+    height: 390px;
+    box-shadow: 10px 30px 10px #666;
+    position: absolute;
+    top: 200px;
+    right: 240px;
+    z-index: -1;
+}
+
+.bgbox{
+    width: 724px;
+    height: 918px;
+    padding-top: 200px;
+}
+
+.bgbox::before {
+    content: "";
+    display: block;
+    background-image: url(./images/stage1.jpg);
+    background-size: 724px 918px;
+    background-repeat: no-repeat;
+    height: 918px;
+    width: 100%;
+    opacity: 0.7;
+    position: absolute;
+    /* 偏移值皆設為 0，讓僞元素跟父元素一樣大小 */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -10;
+}
+
+.child_box{
+    position: relative;
+}

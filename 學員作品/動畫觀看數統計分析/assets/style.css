@@ -1,0 +1,197 @@
+@font-face {
+    font-family: '圓體';
+    src: url(./jf-openhuninn-2.0.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box !important;
+    font-family: '圓體' !important;
+}
+
+.title {
+    color: rgba(255, 208, 0, 0.89);
+}
+
+.subtitle {
+    margin-bottom: 30px;
+}
+
+.subtitle2 {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.showselect {
+    /* background-color: rgba(165, 42, 42, 0.411); */
+    padding: 0;
+    width: auto;
+    text-align: left;
+}
+
+.row {
+    /* background-color: bisque; */
+}
+
+.titlename {
+    text-align: center;
+    /* background-color: rgba(255, 127, 127, 0.295); */
+}
+
+.title-row {
+    text-align: center;
+    /* background-color: rgba(161, 127, 255, 0.295); */
+}
+
+.main {
+    text-align: center;
+    width: auto;
+    height: 700px;
+    /* background-color: rgba(0, 204, 255, 0.26); */
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    overflow-y: hidden;
+    max-height: 1500px;
+}
+
+.main-row {
+    margin-bottom: 15px;
+    padding: 0;
+    width: auto;
+    height: 600px;
+    /* background-color: rgba(226, 116, 43, 0.322); */
+    justify-content: left;
+    text-align: center;
+}
+
+maincontainer {
+    width: auto;
+    height: auto;
+}
+
+/* .container {
+    background-color: aqua;
+    height: 1000px;
+} */
+
+.mycontainer {
+    /* background-color: rgba(0, 0, 0, 0.418); */
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+body {
+    /* background-color: black; */
+}
+
+#modal {
+    border: none;
+    background-color: black;
+}
+
+
+.modalsize {
+    max-height: 800px;
+    max-width: 1200px;
+    border: 1px solid #ccc;
+}
+
+.infotitle {
+    background-color: black;
+    color: rgba(255, 208, 0, 0.89);
+}
+
+.info {
+    display: flex;
+    background-color: black;
+    color: #fff;
+}
+
+.infoimage {
+    height: auto;
+    width: auto;
+}
+
+.infotext {}
+
+.action {
+    max-width: 1400px;
+    display: flex;
+    background: no-repeat center/cover;
+}
+
+.action2 {
+    max-width: 1400px;
+    display: flex;
+    background: no-repeat center/cover;
+    margin-bottom: 30px;
+}
+
+.card {
+    width: 100%;
+    transform-origin: center center;
+    transition: all 1s;
+    border: none;
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.274);
+}
+
+
+.itemsize {
+    position: relative;
+    margin: 2px;
+    height: 300px;
+    /* width: 300px; */
+    overflow: hidden;
+}
+
+.itemimage {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 100%;
+    height: 100%; */
+    background: no-repeat center/cover;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.imageurl {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px;
+    width: 100%;
+    height: 300px;
+    /* z-index: 10; */
+    opacity: 1;
+    transition: opacity 300ms;
+    background-color: rgba(0, 0, 0, 0.459);
+    color: #f5f5f5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.imagetitle {
+    display: flex;
+    height: 300px;
+    align-items: center;
+    /* text-align: center; */
+    justify-content: center;
+}
+
+
+.imageurl:hover {
+    opacity: 0;
+}
