@@ -57,7 +57,3 @@
 ![die](./專題/主頁按鈕滑過.png)
 
 
-
-
-## 影片展示
-[VIDEO](https://drive.google.com/file/d/1eTGCMeA-darlGWQZx6rbAgDE1KnfOp4f/view?t=6s)

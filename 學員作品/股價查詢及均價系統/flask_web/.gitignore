@@ -1,0 +1,5 @@
+.venv
+.vscode
+password.py
+__pycache__
+.devcontainer

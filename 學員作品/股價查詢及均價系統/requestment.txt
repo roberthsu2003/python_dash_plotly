@@ -1,0 +1,8 @@
+matplotlib
+pandas
+requests
+flask
+gunicorn
+dash
+dash-bootstrap-components
+psycopg2
