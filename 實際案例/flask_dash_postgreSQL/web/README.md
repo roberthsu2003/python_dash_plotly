@@ -2,6 +2,10 @@
 - 注意,flask_dash_web資料夾是部署到render的原始檔
 - 使用docker(.devcontainer)
 - dash_file資料夾,是專門顯示dash的頁面
+    - `將dash專案整合至專案要注意事項:如下面圖片說明`
+    
+![](./images/pic0.png)
+
 - auth資料夾,是專門做註冊,登入,登出的介面
 
 ### 1. 使用者註冊介面
