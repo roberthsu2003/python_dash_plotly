@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-tw">
+
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{{ url_for('static', filename='style/bootstrap.min.css') }}" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" defer></script>
+  <title>{% block title %}職能發展學院{% endblock %}</title>
+  <style>
+    /* 自訂樣式 */
+    .navbar {
+      background-color: #007bff;
+      /* 藍色背景 */
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #ffffff !important;
+      /* 白色字體 */
+    }
+
+    .navbar-brand:hover,
+    .nav-link:hover {
+      color: #e3f2fd !important;
+      /* 淺藍色字體 */
+    }
+
+    .container-md {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    iframe {
+      border-radius: 8px;
+      /* 圓角邊框 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* 輕微的陰影效果 */
+    }
+
+    main {
+      padding: 20px;
+      background-color: #f8f9fa;
+      /* 淺灰背景 */
+      border-radius: 8px;
+      /* 圓角邊框 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* 輕微的陰影效果 */
+    }
+
+    /* 更好的響應式設計 */
+    @media (max-width: 768px) {
+      iframe {
+        height: 400px;
+      }
+    }
+  </style>
+  {% endblock %}
+</head>
+
+<body>
+  <div class="container-md">
+    <nav class="navbar navbar-expand-md">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}">職能發展學院</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <img src="{{ url_for('static', filename='images/menu.png') }}" alt="Toggle navigation"
+            style="width: 30px; height: 30px;">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./dashboard/app2">日射量資料評估</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard/app3">太陽能系統評估計算</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      {% block main %}
+      <!-- 這裡是你的主要內容區域 -->
+      {% endblock %}
+    </main>
+
+    <!-- 嵌入 Dash 應用 -->
+    <div class="container mt-5">
+      <iframe src="/dashboard/app1/" style="width: 100%; height: 600px; border: none;"></iframe>
+    </div>
+  </div>
+</body>
+
+</html>

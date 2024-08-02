@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 42px;
+    margin-top: 55px;
+        /* 可以調整此數值來控制標題的下降距離 */
+}
+
+form {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 300px;
+}
+
+label,
+select,
+input {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: inline-block;
+    margin: 20px auto;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid #007BFF;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+}
+
+a:hover {
+    text-decoration: underline;
+    background-color: #007BFF;
+    color: white;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.menu {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.chart {
+    flex: 3;
+    text-align: center;
+}
+
+.menu,
+.chart {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.menu label,
+.menu select,
+.menu input,
+.menu button {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.menu select,
+.menu input {
+    width: calc(100% - 20px);
+    padding: 5px;
+}
+
+.menu button {
+    width: 100%;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Single Stock Chart API</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>單一股票圖形</h1>
+    <div class="container">
+        <div class="menu">
+            <form id="single-stock-form">
+                <label for="stock">選擇股票:</label>
+                <select id="stock" name="stock">
+                    <option value="2330.TW">TSMC (台股)</option>
+                    <option value="TSM">TSMC (ADR)</option>
+                    <option value="NVDA">NVIDIA (NVDA)</option>
+                    <option value="AAPL">Apple (AAPL)</option>
+                </select><br>
+                <label for="chartType">選擇圖形:</label>
+                <select id="chartType" name="chartType">
+                    <option value="KD">KD指標圖</option>
+                    <option value="MA">均價指標圖</option>
+                    <option value="RSI">RSI</option>
+                    <option value="Normal Distribution">常態分佈圖</option>
+                    <option value="Boxplot">盒鬚圖</option>
+                    <option value="Heatmap">股價熱力圖</option>
+                </select><br>
+                <label for="startDate">開始日期:</label>
+                <input type="date" id="startDate" name="startDate"><br>
+                <label for="endDate">結束日期:</label>
+                <input type="date" id="endDate" name="endDate"><br>
+                <button type="submit">取得單一股票圖形</button>
+            </form>
+        </div>
+        <div class="chart">
+            <img id="single-chart" src="" alt="Chart will appear here">
+        </div>
+    </div>
+    <script>
+        // 預設值
+        document.getElementById('stock').value = '2330.TW';
+        document.getElementById('chartType').value = 'MA';
+        document.getElementById('startDate').value = '2024-04-01';
+        document.getElementById('endDate').value = '2024-07-26';
+
+        function fetchChart() {
+            var stock = document.getElementById('stock').value;
+            var chartType = document.getElementById('chartType').value;
+            var startDate = document.getElementById('startDate').value;
+            var endDate = document.getElementById('endDate').value;
+
+            fetch('/api/single_plot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ stock: stock, chartType: chartType, startDate: startDate, endDate: endDate })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.image) {
+                        document.getElementById('single-chart').src = 'data:image/png;base64,' + data.image;
+                    } else {
+                        alert('Error: ' + data.error);
+                    }
+                });
+        }
+
+        // 頁面加載時自動獲取預設圖表
+        window.onload = fetchChart;
+
+        document.getElementById('single-stock-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            fetchChart();
+        });
+    </script>
+</body>
+
+</html>

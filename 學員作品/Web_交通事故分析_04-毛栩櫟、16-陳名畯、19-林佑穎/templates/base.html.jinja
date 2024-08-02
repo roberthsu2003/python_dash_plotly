@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-tw">
+
+<head>
+  {% block head%}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{{url_for('static',filename='style/bootstrap.min.css')}}" rel="stylesheet">
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <title>{% block title%}首页{% endblock%}</title>
+  <style>
+    .navbar-expand-md .navbar-toggler {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+    }
+    @media (max-width: 1024px) {
+      .navbar-expand-md .top {
+        padding-right: 50px;
+      }
+    }
+  </style>
+  {% endblock %}
+</head>
+
+<body>
+  <nav class="navbar-expand-md bg-body-tertiary" ">
+      <div class="top" style="background-color:#161618">
+        <a class="navbar-brand" href="{{url_for('index')}}" style="color:#d0d0d0;line-height:45px;margin-left:15%;font-size:25px">交通事故分析</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <img src="{{url_for('static',filename='images/menuicon.png')}}" alt="Toggle navigation"
+            style="width: 30px; height: 30px;">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item";width:100px;margin-left:50px">
+              <a class="nav-link" href="./dashboard/dashboard2" style="color:#d0d0d0;margin-left:100px">我们的作品</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class="container-md">
+    
+    <main>
+      {% block main%}
+      {% endblock %}
+    </main>
+  </div>
+</body>
+
+</html>

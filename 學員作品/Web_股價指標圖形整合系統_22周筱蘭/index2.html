@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multi Stock Chart API</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>多股票圖形</h1>
+    <div class="container">
+        <div class="menu">
+            <form id="multi-stock-form">
+                <label for="multi-tickers">選擇股票:</label>
+                <select id="multi-tickers" name="multi-tickers">
+                    <option value="TSM_NVDA">TSMC(ADR)xNVIDIA</option>
+                    <option value="TSM_AAPL">TSMC(ADR)xAPPLE</option>
+                    <option value="NVDA_TSM">NVIDIAxTSMC(ADR)</option>
+                    <option value="AAPL_TSM">APPLExTSMC(ADR)</option>
+                </select><br>
+                <label for="multiChartType">選擇圖形:</label>
+                <select id="multiChartType" name="multiChartType">
+                    <option value="Scatter">散佈圖</option>
+                    <option value="Regression">迴歸分析圖</option>
+                    <option value="Multi-Price">多股票價格圖</option>
+                    <option value="Decision Tree">決策樹圖</option>
+                </select><br>
+                <label for="multiStartDate">開始日期:</label>
+                <input type="date" id="multiStartDate" name="multiStartDate"><br>
+                <label for="multiEndDate">結束日期:</label>
+                <input type="date" id="multiEndDate" name="multiEndDate"><br>
+                <button type="submit">取得多股票圖形</button>
+            </form>
+        </div>
+        <div class="chart">
+            <img id="multi-chart" src="" alt="Chart will appear here">
+        </div>
+    </div>
+    <script>
+        // 預設值
+        document.getElementById('multi-tickers').value = 'TSM_NVDA';
+        document.getElementById('multiChartType').value = 'Regression';
+        document.getElementById('multiStartDate').value = '2022-07-01';
+        document.getElementById('multiEndDate').value = '2024-07-26';
+
+        function fetchMultiChart() {
+            var selectedValue = document.getElementById('multi-tickers').value;
+            var tickers;
+            switch (selectedValue) {
+                case "TSM_NVDA":
+                    tickers = ["TSM", "NVDA"];
+                    break;
+                case "TSM_AAPL":
+                    tickers = ["TSM", "AAPL"];
+                    break;
+                case "NVDA_TSM":
+                    tickers = ["NVDA", "TSM"];
+                    break;
+                case "AAPL_TSM":
+                    tickers = ["AAPL", "TSM"];
+                    break;
+                default:
+                    alert('請選擇一個有效的股票組合');
+                    return;
+            }
+            var chartType = document.getElementById('multiChartType').value;
+            var startDate = document.getElementById('multiStartDate').value;
+            var endDate = document.getElementById('multiEndDate').value;
+
+            fetch('/api/multi_plot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ tickers: tickers, chartType: chartType, startDate: startDate, endDate: endDate })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.image) {
+                        document.getElementById('multi-chart').src = 'data:image/png;base64,' + data.image;
+                    } else {
+                        alert('Error: ' + data.error);
+                    }
+                });
+        }
+
+        // 頁面加載時自動獲取預設圖表
+        window.onload = fetchMultiChart;
+
+        document.getElementById('multi-stock-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            fetchMultiChart();
+        });
+    </script>
+</body>
+
+</html>

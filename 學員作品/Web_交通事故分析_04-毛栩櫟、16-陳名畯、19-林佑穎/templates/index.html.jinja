@@ -1,0 +1,290 @@
+{% extends 'base.html.jinja' %}
+
+{% block title %}
+{{ super() }} - 交通事故分析
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    body {
+        background-color: #f5f5f7;
+        font-family: "微軟正黑體", "Apple LiHei Pro";
+        padding-top: 0
+    }
+
+    .top {
+        display: flex;
+        height: 45px
+    }
+
+    .top a {}
+
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7,
+    .box8,
+    .box9 {
+        margin: 20px;
+        border-radius: 20px;
+        padding: 5px;
+        box-shadow: 3px 3px 20px #e2e2e2, -3px -3px 0.5px #ededed;
+        padding: 40px;
+    }
+
+    h2 {
+        margin: 0 0 30px 15px
+    }
+
+    .box0 {
+        display: flex;
+        justify-content: space-evenly
+    }
+
+    .box1 {
+        width: 45%;
+    }
+
+    .box1 li {
+        margin-top: 15px;
+        margin-left: 12px
+    }
+
+    .box2 {
+        width: 45%;
+    }
+
+    .box2 p {
+        margin: 0 10px;
+    }
+
+    .box2 div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .box2 ul {}
+
+    .box2 li {
+        margin: 15px 15px;
+        list-style: none;
+        background-color: black;
+        color: #ebf4fd;
+        height: 45px;
+        width: 120px;
+        line-height: 45px;
+        border-radius: 30px;
+        text-align: center;
+        font-weight: bold;
+        list-style: none
+    }
+
+    .box9{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .box9 div{
+        width: 40%;
+        margin: 0;
+    }
+
+    .box9 h2{
+    }
+
+    .border {
+        border: 1px solid black;
+    }
+
+    img {
+        border-radius: 10px
+    }
+
+    p {
+        font-size: 1.2em
+    }
+
+    @media (max-width: 768px) {
+
+        .box1,
+        .box2 {
+            width: 100%;
+        }
+
+        .box2 div {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box2 ul {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+
+        .box1,
+        .box2 {
+            width: 48%;
+        }
+
+        .box1 {
+            margin-right: 2%;
+        }
+
+        .box2 {
+            margin-left: 2%;
+        }
+
+        .box2 div {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .box2 ul {
+            margin-bottom: 10px;
+        }
+    }
+
+    @media (min-width: 1025px) {
+
+        .box1,
+        .box2 {
+            width: 45%;
+        }
+
+        .box1 {
+            margin-right: 20px;
+        }
+
+        .box2 {
+            margin-left: 20px;
+        }
+
+        .box2 div {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .box2 li {
+            width: auto;
+            min-width: 120px;
+        }
+    }
+</style>
+
+{% endblock %}
+
+{% block main %}
+<h1 style="margin:3% 5% 0">这是首页 😀🤩😇</h1>
+<div class="box0" class="container-fluid">
+    <div class="box1">
+        <h2>功能簡介：</h2>
+        <ul>
+            <li>查詢條件(日期)： 用戶可透過下拉選單選擇特定一天發生的事故列表</li>
+            <li>查詢條件(縣市)： 用戶可透過勾選欄位選擇事件發生的縣市，或者點選全選來選擇所有的縣市</li>
+            <li>進階篩選： 用戶可透過勾選欄位選擇天氣與光線狀態來篩選事故列表</li>
+            <li>篩選結果： 呈現在上述條件所發生的事故數量</li>
+            <li>事故資料： 呈現篩選後的事故資料</li>
+            <li>事故地圖： 呈現篩選查詢後的所有事故發生地點</li>
+            <li>顯示對應的線圖： 呈現篩選資料後的交通事故類型、天候分佈、道路類型分佈、事故時間分佈之圖表</li>
+        </ul>
+    </div>
+
+    <div class="box2">
+        <h2>資料格式：</h2>
+        <p>各年度資料CSV檔案</p>
+        <p>顯示事故資料類型包含：</p>
+        <div>
+            <ul>
+                <li>發生日期</li>
+                <li>發生時間</li>
+                <li>事故類別</li>
+                <li>發生地點</li>
+                <li>光線名稱</li>
+            </ul>
+            <ul>
+                <li>天氣</li>
+                <li>速限</li>
+                <li>道路類別</li>
+                <li>事故類型</li>
+                <li>死亡受傷人數</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<h2 style="margin:10px 5% 5px">資料來源:</h2>
+<p style="margin-left:5%">傷亡道路交通事故資料 (<a
+        href="https://data.gov.tw/datasets/search?p=1&size=10&s=_score_desc&rft=%E4%BA%A4%E9%80%9A%E4%BA%8B%E6%95%85"
+        target="_blank">政府資料開放平台</a>)</p>
+
+
+
+<div class="box4" class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="../static/images/initial.png" class="img-fluid border padding">
+        </div>
+        <div class="col-md-6">
+            <img src="../static/images/map.png" class="img-fluid border padding">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="../static/images/search.png" class="img-fluid border padding">
+        </div>
+        <div class="col-md-6">
+            <img src="../static/images/chart.png" class="img-fluid border padding">
+        </div>
+    </div>
+</div>
+
+<div class="box5" class="container-fluid">
+    <h2>把csv档转换成utf-8编码的型别</h2>
+    <img src="../static/images/convert.png" class="img-fluid border padding">
+</div>
+
+<div class="box6" class="container-fluid">
+    <h2>在pgAdmin中的资料库建立各年度的Table</h2>
+    <img src="../static/images/table.png" class="img-fluid border padding">
+</div>
+
+<div class="box7" class="container-fluid">
+    <h2>插入资料语法</h2>
+    <img src="../static/images/insert.png" class="img-fluid border padding">
+</div>
+
+<div class="box8" class="container-fluid">
+    <h2>检查资料是否插入成功</h2>
+    <img src="../static/images/result.png" class="img-fluid border padding">
+</div>
+
+<div class="box9" class="container-fluid">
+    <div>
+        <h2>程式版介紹影片：</h2>
+        <iframe width="500" height="280" src="https://www.youtube.com/embed/-T5VEKr6J7M?si=2nC5V23In8_Xx3wr"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+        <h2>網頁版介紹影片：</h2>
+        <iframe width="500" height="280" src="https://www.youtube.com/embed/HANUxkTxgn4?si=szFdLormkmZSC7oV"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</div>
+{% endblock %}
